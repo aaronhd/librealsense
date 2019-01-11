@@ -70,7 +70,7 @@ float get_depth_unit_value(const rs2_device* const dev)
         printf("Depth sensor not found!\n");
         exit(EXIT_FAILURE);
     }
-
+    printf("depth_scale: %f\n", depth_scale);
     return depth_scale;
 }
 
@@ -104,6 +104,7 @@ int main()
 
     /* Determine depth value corresponding to one meter */
     uint16_t one_meter = (uint16_t)(1.0f / get_depth_unit_value(dev));
+
 
     // Create a pipeline to configure, start and stop camera streaming
     // The returned object should be released with rs2_delete_pipeline(...)
